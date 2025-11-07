@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>FastApitTest</title>
+  </head>
+
+  <script>
+    async function appleClick(color) {
+      const response = await fetch(
+        "http://127.0.0.1:8000/order/apple?color=" + color
+      );
+      const result = await response.json();
+
+      document.getElementById("msg").innerHTML = result.msg;
+      color == "red" ? "🍎" : "🍏" + "注文されました。";
+    }
+  </script>
+
+  <button onclick="appleClick('red')">🍎</button>
+  <button onclick="appleClick('blue')">🍏</button>
+  <div id="msg"></div>
+</html>
